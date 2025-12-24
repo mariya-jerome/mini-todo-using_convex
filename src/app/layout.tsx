@@ -1,11 +1,16 @@
-import { Providers } from "./providers";
-import "./globals.css";
+"use client";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+import "./globals.css";
+import { ConvexProvider } from "convex/react";
+import { convex } from "@/convex/client";
+
+export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html>
       <body>
-        <Providers>{children}</Providers>
+        <ConvexProvider client={convex}>
+          {children}
+        </ConvexProvider>
       </body>
     </html>
   );
